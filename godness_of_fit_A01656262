@@ -1,0 +1,193 @@
+library(fitdistrplus)
+data <- read.csv('C:/Users/DELL/Desktop/Algerian_forest_fires_dataset_UPDATE.csv')
+
+
+distribution_list <- c("norm", "lnorm", "gamma", "exp", "weibull")
+distribution_list_2 <- c("norm", "gamma", "exp")
+
+#TEMPERATURE
+results_temp <- vector("list", length(distribution_list))
+for (i in 1:length(distribution_list)) {
+  results_temp[[i]] <- fitdist(data$Temperature, distr = distribution_list[i])
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_temp[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(gof_stats)
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_temp[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(as.numeric(gof_stats$ks))
+  print(gof_stats$kstest)
+}
+
+
+#RH
+results_rh <- vector("list", length(distribution_list))
+for (i in 1:length(distribution_list)) {
+  results_rh[[i]] <- fitdist(data$RH, distr = distribution_list[i])
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_rh[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(gof_stats)
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_rh[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(as.numeric(gof_stats$ks))
+  print(gof_stats$kstest)
+}
+
+
+#WS
+results_ws <- vector("list", length(distribution_list))
+for (i in 1:length(distribution_list)) {
+  results_ws[[i]] <- fitdist(data$Ws, distr = distribution_list[i])
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_ws[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(gof_stats)
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_ws[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(as.numeric(gof_stats$ks))
+  print(gof_stats$kstest)
+}
+
+
+#RAIN
+results_rain <- vector("list", length(distribution_list_2))
+for (i in 1:length(distribution_list_2)) {
+  results_rain[[i]] <- fitdist(data$Rain, distr = distribution_list_2[i], method = "mge")
+}
+for (i in 1:length(distribution_list_2)) {
+  gof_stats <- gofstat(results_rain[[i]])
+  print(paste("Distribution:", distribution_list_2[i]))
+  print(gof_stats)
+}
+for (i in 1:length(distribution_list_2)) {
+  gof_stats <- gofstat(results_rain[[i]])
+  print(paste("Distribution:", distribution_list_2[i]))
+  print(as.numeric(gof_stats$ks))
+  print(gof_stats$kstest)
+}
+
+
+#FFMC
+results_ffmc <- vector("list", length(distribution_list))
+for (i in 1:length(distribution_list)) {
+  results_ffmc[[i]] <- fitdist(data$FFMC, distr = distribution_list[i])
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_ffmc[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(gof_stats)
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_ffmc[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(as.numeric(gof_stats$ks))
+  print(gof_stats$kstest)
+}
+
+
+#DMC
+results_dmc <- vector("list", length(distribution_list))
+for (i in 1:length(distribution_list)) {
+  results_dmc[[i]] <- fitdist(data$DMC, distr = distribution_list[i])
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_dmc[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(gof_stats)
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_dmc[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(as.numeric(gof_stats$ks))
+  print(gof_stats$kstest)
+}
+
+
+#DC
+results_dc <- vector("list", length(distribution_list))
+for (i in 1:length(distribution_list)) {
+  results_dc[[i]] <- fitdist(data$DC, distr = distribution_list[i])
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_dc[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(gof_stats)
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_dc[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(as.numeric(gof_stats$ks))
+  print(gof_stats$kstest)
+}
+
+
+#ISI
+results_isi <- vector("list", length(distribution_list_2))
+for (i in 1:length(distribution_list_2)) {
+  results_isi[[i]] <- fitdist(data$ISI, distr = distribution_list_2[i], method = "mge")
+}
+for (i in 1:length(distribution_list_2)) {
+  gof_stats <- gofstat(results_isi[[i]])
+  print(paste("Distribution:", distribution_list_2[i]))
+  print(gof_stats)
+}
+for (i in 1:length(distribution_list_2)) {
+  gof_stats <- gofstat(results_isi[[i]])
+  print(paste("Distribution:", distribution_list_2[i]))
+  print(as.numeric(gof_stats$ks))
+  print(gof_stats$kstest)
+}
+
+
+#BUI
+results_bui <- vector("list", length(distribution_list))
+for (i in 1:length(distribution_list)) {
+  results_bui[[i]] <- fitdist(data$BUI, distr = distribution_list[i])
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_bui[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(gof_stats)
+}
+for (i in 1:length(distribution_list)) {
+  gof_stats <- gofstat(results_bui[[i]])
+  print(paste("Distribution:", distribution_list[i]))
+  print(as.numeric(gof_stats$ks))
+  print(gof_stats$kstest)
+}
+
+
+#FWI
+results_fwi <- vector("list", length(distribution_list_2))
+for (i in 1:length(distribution_list_2)) {
+  results_fwi[[i]] <- fitdist(data$FWI, distr = distribution_list_2[i], method = "mge")
+}
+for (i in 1:length(distribution_list_2)) {
+  gof_stats <- gofstat(results_fwi[[i]])
+  print(paste("Distribution:", distribution_list_2[i]))
+  print(gof_stats)
+}
+for (i in 1:length(distribution_list_2)) {
+  gof_stats <- gofstat(results_fwi[[i]])
+  print(paste("Distribution:", distribution_list_2[i]))
+  print(as.numeric(gof_stats$ks))
+  print(gof_stats$kstest)
+}
+
+
+classes = data$Classes
+charact <- c()
+for (i in 1:length(classes)) {
+  if (startsWith(classes[i], "n")) charact[i] <- 0 else charact[i] <- 1
+}
+hist(charact, probability=TRUE)
